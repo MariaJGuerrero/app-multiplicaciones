@@ -1,0 +1,101 @@
+*{
+    margin: 0%;
+    padding: 0;
+}
+
+.contenedor-Repaso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+h1{
+  color: white;
+  font-size: 75px;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  margin: 40px;
+}
+
+.menu-botons{
+   width: 80%;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   margin: 10px;
+}
+
+.tabla-boton{
+    min-width:100px;
+    height: 50px;
+    display: flex;
+    margin: 40px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #AFB0B6;
+    background-color: #B983FF;
+    border-radius: 30px;
+    color: black;
+    box-shadow: 2px 1px 8px 2px white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabla-boton:hover{
+    background-color: #CAB8FF;
+    box-shadow: 3px 2px 12px 2px white;
+}
+
+.contenedor-principal-tabla{
+    margin-top: 20px;
+    width: 30%;
+    min-height: 100px;
+    background-color: #CAB8FF;
+    box-shadow: 2px 1px 8px 2px white;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-fila-tabla{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor-tabla-operacion{
+    margin: 10px 10px 10px 30px;
+    width: 200px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.contenedor-resultado-input{
+    margin: 10px 30px 10px 10px;
+    width: 100px;
+    min-height: 30px;
+    display: flex;
+    align-self: flex-end;
+    font-weight: bolder;
+    color: blue;
+    font-size: 1.5em;
+}
+
+.contenedor-evaluacion{
+    min-width: 100px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    color: green;
+}
+
+.contenedor-evaluacion-mal{
+    
+    color: red;
+
+}
