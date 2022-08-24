@@ -27,7 +27,7 @@ html, body{
 .titulo{
   color: white;
   font-size: 75px;
-  width: 300px;
+  min-width: 300px;
   height: 100px;
   text-align: center;
   margin: 40px;

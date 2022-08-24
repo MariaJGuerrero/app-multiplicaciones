@@ -2,6 +2,8 @@ import React from "react";
 import TablaInput from "../../componentes/tabla-input";
 import './repaso.css'
 import { useState } from "react";
+import BotonInicio from "../../componentes/boton-inicio";
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,7 +20,7 @@ function Repaso (){
     return(
         <>
             <div className="contenedor-Repaso">
-                <h1>REPASO</h1>
+                <h1 className="titulo">REPASO</h1>
                 <div className="menu-botons">
                     {tablas.map( (numeroTabla) => <button className="tabla-boton" onClick={ () => setNumeroTablaElegido(numeroTabla) }>Tabla {numeroTabla}</button> )}
                   
@@ -28,7 +30,11 @@ function Repaso (){
                    {multiplicadores.map((numero) =>  <TablaInput numeroTabla = {parseInt(numeroTablaElegido)} multiplicador = {parseInt(numero)}/>)}
 
                 </div>
-                
+
+            <Link to="/">
+                <BotonInicio 
+                    texto='Volver al inicio' />
+            </Link>
                 
             </div>
             
