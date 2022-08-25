@@ -1,0 +1,37 @@
+.contenedor-principal-parejas{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.contenedor-parejas{
+    margin-top: 20px;
+    width: 30%;
+    min-height: 100px;
+    background-color: #CAB8FF;
+    box-shadow: 2px 1px 8px 2px white;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.columna-parejas-operaciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+.tarjeta{
+    min-width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border: 1px solid #AFB0B6;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 20px;
+}
