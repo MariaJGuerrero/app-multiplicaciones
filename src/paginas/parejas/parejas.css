@@ -45,6 +45,12 @@
     font-weight: bold;
 }
 
-.bien-hecho{
-    background-color: green;
+h3{
+    justify-self: center;
+    align-self: center;
+    color: whitesmoke;
+    text-shadow: 2px 1px white;
+    font-size: 2em;
+    margin-top: 30px;
+
 }

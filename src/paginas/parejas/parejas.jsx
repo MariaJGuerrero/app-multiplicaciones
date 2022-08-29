@@ -85,7 +85,10 @@ function Parejas() {
           }
         </div>
       </section>
-          <p>{resultadoValido? 'Bien hecho!' : 'no, no, no, no, no'}</p>
+          <h3>
+              {resultadoValido ? 'Bien hecho!' : undefined}
+              {resultadoValido === false ? 'no, no, no, no, no' : undefined}
+          </h3>
       <footer>
         <Link to="/">
           <BotonInicio
