@@ -5,6 +5,10 @@
     justify-content: center;
     align-items: center;
 }
+.titulo{
+    min-height: 1auto;
+
+}
 
 
 .contenedor-operacion{
