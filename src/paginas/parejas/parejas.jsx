@@ -59,12 +59,13 @@ function Parejas() {
 
       <section className="contenedor-parejas">
         <div className="columna-parejas-operaciones">
-          {operadores.map((operador, index) =>
+          {operadores.map((operador) =>
             <button
-              onClick={() =>
-                setOperadoresSeleccionados(operador.a * operador.b)
-              }
-              className={"tarjeta operacion"}
+              onClick={() => {
+                setOperadoresSeleccionados(operador.a * operador.b) 
+                setResultadoValido(undefined)
+              }}
+              className="tarjeta operacion"
             >
               {`${operador.a} * ${operador.b}`}
             </button>)
@@ -73,12 +74,8 @@ function Parejas() {
         <div className="columna-parejas-resultados">
           {resultados.map((resultado) =>
             <button 
-              onClick={() => {
-                if (operadoresSeleccionados === resultado) {
-                  setResultadoValido(true)
-                }
-              }}
-              className={"tarjeta resultado"}
+              onClick={() => setResultadoValido(operadoresSeleccionados === resultado)}
+              className="tarjeta resultado"
             >
               {resultado}
             </button>)

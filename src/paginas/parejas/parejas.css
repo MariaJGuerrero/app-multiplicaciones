@@ -45,6 +45,11 @@
     font-weight: bold;
 }
 
+.tarjeta:hover{
+    background-color: white;
+    box-shadow: 1px 1px 5px white;
+}
+
 h3{
     justify-self: center;
     align-self: center;

@@ -50,14 +50,13 @@ function Verdadero() {
 
    function clearState (){
         setOperadores(generarOperadores())
-        setBienHecho(false)
+        setBienHecho(undefined)
     }
+
 
     function clickHandler(opcion) {
         let opcionSeleccionado = opcion
-        if (opcionSeleccionado === resultado){
-            setBienHecho(true)
-        }
+        setBienHecho(opcionSeleccionado === resultado)
     }
 
 
@@ -82,6 +81,8 @@ function Verdadero() {
                 
             </div>
             {bienHecho ? <BienHecho LimpiarEstado={clearState} /> : ''}
+            {bienHecho === false ? <h1 className="titulo">Sigue intentándolo!</h1> : ''}
+            
             
             <Link to="/">
                 <BotonInicio texto='Volver al inicio' />
