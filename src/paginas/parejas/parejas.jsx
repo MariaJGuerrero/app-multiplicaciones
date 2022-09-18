@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import BotonInicio from "../../componentes/boton-inicio";
 import './parejas.css'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import puntuacionGeneral from "../../componentes/utils/contexto-marcador";
+
 
 
 
@@ -51,6 +53,8 @@ function Parejas() {
   const [operadoresSeleccionados, setOperadoresSeleccionados] = useState();
   const [resultadoValido, setResultadoValido] = useState();
 
+  const contadorPuntos = useContext(puntuacionGeneral);
+
   return (
     <div className="contenedor-principal-parejas">
       <header>
@@ -74,7 +78,14 @@ function Parejas() {
         <div className="columna-parejas-resultados">
           {resultados.map((resultado) =>
             <button 
-              onClick={() => setResultadoValido(operadoresSeleccionados === resultado)}
+              onClick={() => {
+                const esValido = operadoresSeleccionados === resultado
+                setResultadoValido(esValido);
+                if (esValido){
+                  contadorPuntos.sumarPuntos()
+                  console.log(contadorPuntos.puntuacion)
+                }
+              } }
               className="tarjeta resultado"
             >
               {resultado}

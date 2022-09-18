@@ -5,28 +5,35 @@ import Boton from '../componentes/Boton'
 
 
 
+
 function Home() {
-    return (
+
+    //const [marcador, setMarcador] = useState(0);
+       return (
         <div className="App">
             <h1 className='titulo'>TÍTULO</h1>
-            <div className='contenedor-menu'>
-            <Link to="/repaso">
-                <Boton  
-                    texto='REPASO' />
-            </Link>
-            <Link to="/verdadero">
-                <Boton 
-                    texto='VERDADERO' />
-            </Link>
-            <Link to="/parejas">
-                <Boton 
-                    texto='PAREJAS' />
-            </Link>
-            <Link to="/cuentoremas">
-                <Boton 
-                     texto='CUENTOREMAS' />
-            </Link>
-            </div>
+           
+            
+           
+                <div className='contenedor-menu'>
+                <Link to="/repaso">
+                    <Boton  
+                        texto='REPASO' />
+                </Link>
+                <Link to="/verdadero">
+                    <Boton 
+                        texto='VERDADERO' />
+                </Link>
+                <Link to="/parejas">
+                    <Boton 
+                        texto='PAREJAS' />
+                </Link>
+                <Link to="/cuentoremas">
+                    <Boton 
+                        texto='CUENTOREMAS' />
+                </Link>
+                </div>
+            
         </div>
     )
 }
