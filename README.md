@@ -6,6 +6,11 @@
 - css
 - react
 
+### Improvements:
+- [x] improve readme.
+- [ ] Arrow functions.
+- [x] Key maps.
+ 
 
 
 
