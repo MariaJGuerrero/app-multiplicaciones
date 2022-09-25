@@ -8,8 +8,8 @@
 
 ### Improvements:
 - [x] improve readme.
-- [] Arrow functions.
-- [] Key maps.
+- [ ] Arrow functions.
+- [x] Key maps.
  
 
 
