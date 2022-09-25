@@ -5,6 +5,7 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+import { useState } from 'react';
 import Repaso from './paginas/repaso/repaso';
 import Verdadero from './paginas/verdadero/verdadero';
 import Home from './paginas/home';
@@ -15,11 +16,12 @@ import puntuacionGeneral from './componentes/utils/contexto-marcador';
 
 
 function App() {
-
-  let puntosTotales = 0;
-  const sumarPunto = (puntos) => puntosTotales = puntos + 1;
-
-
+  const [marcador, setMarcador] = useState(0)
+ 
+  function sumarPuntos () {
+    setMarcador(marcador+1)
+    console.log('En el sumarPuntos', marcador+1)
+  }
 
   return (
     <>
@@ -29,7 +31,7 @@ function App() {
           <Route exact path="/repaso" element={<Repaso />} />
           <Route exact path="/verdadero" element={<Verdadero />} />
           <Route exact path="/parejas" element={ 
-            <puntuacionGeneral.Provider value={{ puntuacion: sumarPunto(puntosTotales), sumarPuntos: sumarPunto }}>
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
               <Parejas />
             </puntuacionGeneral.Provider>
          } />

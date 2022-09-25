@@ -55,10 +55,12 @@ function Parejas() {
 
   const contadorPuntos = useContext(puntuacionGeneral);
 
+  console.log('En el Parejas()', contadorPuntos.puntuacion)
+
   return (
     <div className="contenedor-principal-parejas">
       <header>
-        <h1 className="titulo"> EMPAREJAMOS</h1>
+        <h1 className="titulo">EMPAREJAMOS</h1>
       </header>
 
       <section className="contenedor-parejas">
@@ -83,7 +85,7 @@ function Parejas() {
                 setResultadoValido(esValido);
                 if (esValido){
                   contadorPuntos.sumarPuntos()
-                  console.log(contadorPuntos.puntuacion)
+                  console.log('En el click', contadorPuntos.puntuacion)
                 }
               } }
               className="tarjeta resultado"
@@ -109,3 +111,5 @@ function Parejas() {
 }
 
 export default Parejas;
+
+
