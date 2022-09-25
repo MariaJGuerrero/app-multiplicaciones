@@ -55,8 +55,6 @@ function Parejas() {
 
   const contadorPuntos = useContext(puntuacionGeneral);
 
-  console.log('En el Parejas()', contadorPuntos.puntuacion)
-
   return (
     <div className="contenedor-principal-parejas">
       <header>
@@ -65,13 +63,14 @@ function Parejas() {
 
       <section className="contenedor-parejas">
         <div className="columna-parejas-operaciones">
-          {operadores.map((operador) =>
+          {operadores.map((operador, i) =>
             <button
               onClick={() => {
                 setOperadoresSeleccionados(operador.a * operador.b) 
                 setResultadoValido(undefined)
               }}
               className="tarjeta operacion"
+              key= {i}
             >
               {`${operador.a} * ${operador.b}`}
             </button>)
@@ -89,6 +88,7 @@ function Parejas() {
                 }
               } }
               className="tarjeta resultado"
+              key= {resultado}
             >
               {resultado}
             </button>)

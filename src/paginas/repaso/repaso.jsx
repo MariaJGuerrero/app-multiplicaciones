@@ -22,12 +22,12 @@ function Repaso (){
             <div className="contenedor-Repaso">
                 <h1 className="titulo">REPASO</h1>
                 <div className="menu-botons">
-                    {tablas.map( (numeroTabla) => <button className="tabla-boton" onClick={ () => setNumeroTablaElegido(numeroTabla) }>Tabla {numeroTabla}</button> )}
+                    {tablas.map((numeroTabla) => <button className="tabla-boton" onClick={() => setNumeroTablaElegido(numeroTabla)} key= {numeroTabla}>Tabla {numeroTabla}</button>)}
                   
                 </div>
                 <div className="contenedor-principal-tabla">
                     
-                   {multiplicadores.map((numero) =>  <TablaInput numeroTabla = {parseInt(numeroTablaElegido)} multiplicador = {parseInt(numero)}/>)}
+                   {multiplicadores.map((numero) =>  <TablaInput numeroTabla = {parseInt(numeroTablaElegido)} multiplicador = {parseInt(numero)} key={numero}/>)}
 
                 </div>
 

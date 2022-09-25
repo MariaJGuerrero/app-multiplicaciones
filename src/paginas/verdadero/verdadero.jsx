@@ -74,6 +74,7 @@ function Verdadero() {
                     <button
                         onClick={() => clickHandler(opcion)} 
                         className="boton"
+                        key= {opcion}
                     >
                         {opcion}
                     </button>)
