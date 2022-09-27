@@ -1,7 +1,7 @@
 
 const BotonInicio = ({ texto }) => {
     return(
-        <button className="boton boton-inicio">
+        <button className='boton boton-inicio'>
             {texto}
         </button>
     )

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
-import BotonInicio from "../../componentes/boton-inicio";
+import BotonInicio from '../../componentes/boton-inicio';
 import './parejas.css'
 import { useState, useContext } from 'react';
-import puntuacionGeneral from "../../componentes/utils/contexto-marcador";
+import puntuacionGeneral from '../../componentes/utils/contexto-marcador';
 
 
 function getRandomIntInclusive(min, max) {
@@ -40,26 +40,26 @@ const Parejas = () => {
   const contadorPuntos = useContext(puntuacionGeneral);
 
   return (
-    <div className="contenedor-principal-parejas">
+    <div className='contenedor-principal-parejas'>
       <header>
-        <h1 className="titulo">EMPAREJAMOS</h1>
+        <h1 className='titulo'>EMPAREJAMOS</h1>
       </header>
-      <section className="contenedor-parejas">
-        <div className="columna-parejas-operaciones">
+      <section className='contenedor-parejas'>
+        <div className='columna-parejas-operaciones'>
           {operadores.map((operador, i) =>
             <button
               onClick={() => {
                 setOperadoresSeleccionados(operador.a * operador.b) 
                 setResultadoValido(undefined)
               }}
-              className="tarjeta operacion"
+              className='tarjeta operacion'
               key= {i}
             >
               {`${operador.a} * ${operador.b}`}
             </button>)
           }
         </div>
-        <div className="columna-parejas-resultados">
+        <div className='columna-parejas-resultados'>
           {resultados.map((resultado) =>
             <button 
               onClick={() => {
@@ -70,7 +70,7 @@ const Parejas = () => {
                   console.log('En el click', contadorPuntos.puntuacion)
                 }
               } }
-              className="tarjeta resultado"
+              className='tarjeta resultado'
               key= {resultado}
             >
               {resultado}
@@ -83,7 +83,7 @@ const Parejas = () => {
               {resultadoValido === false ? 'no, no, no, no, no' : undefined}
           </h3>
       <footer>
-        <Link to="/">
+        <Link to='/'>
           <BotonInicio
             texto='Volver al inicio' />
         </Link>

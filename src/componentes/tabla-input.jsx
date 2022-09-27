@@ -9,14 +9,14 @@ const TablaInput = ({ numeroTabla, multiplicador }) => {
 
     return(
         <div className='contenedor-fila-tabla'>
-            <div className="contenedor-tabla-operacion">{numeroTabla} x {multiplicador}</div>
+            <div className='contenedor-tabla-operacion'>{numeroTabla} x {multiplicador}</div>
                 <input
                     type='number'
                     onChange={(evento) => { 
                         resultadoDelUsuario = parseInt(evento.target.value)
                         setEsResultadoValido(comprobarResultado(resultadoOperacion, resultadoDelUsuario))
                     } } 
-                    className="contenedor-resultado-input"
+                    className='contenedor-resultado-input'
                 ></input> 
                 <div className='contenedor-evaluacion'>
                     {esResultadoValido ? 'bien!' : undefined}      

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
-import BotonInicio from "../../componentes/boton-inicio";
-import BienHecho from "../../componentes/verdadero-bien-hecho";
+import BotonInicio from '../../componentes/boton-inicio';
+import BienHecho from '../../componentes/verdadero-bien-hecho';
 import './verdadero.css'
 import{useState} from 'react';
 
@@ -56,19 +56,19 @@ const Verdadero = () => {
 
 
     return (
-        <div className="contenedor-principal-verdadero">
-            <h1 className="titulo"> ¿CUÁL ES EL CORRECTO? </h1>
-            <div className="contenedor-operacion">
+        <div className='contenedor-principal-verdadero'>
+            <h1 className='titulo'> ¿CUÁL ES EL CORRECTO? </h1>
+            <div className='contenedor-operacion'>
                 <p>{`${operadores[0]} * ${operadores[1]}`}</p>
             </div>
             
             <div 
-                className="contenedor-opciones-resultado"
+                className='contenedor-opciones-resultado'
             >
                 {opcionesResultados.map((opcion) => 
                     <button
                         onClick={() => clickHandler(opcion)} 
-                        className="boton"
+                        className='boton'
                         key= {opcion}
                     >
                         {opcion}
@@ -77,10 +77,10 @@ const Verdadero = () => {
                 
             </div>
             {bienHecho ? <BienHecho LimpiarEstado={clearState} /> : ''}
-            {bienHecho === false ? <h1 className="titulo">Sigue intentándolo!</h1> : ''}
+            {bienHecho === false ? <h1 className='titulo'>Sigue intentándolo!</h1> : ''}
             
             
-            <Link to="/">
+            <Link to='/'>
                 <BotonInicio texto='Volver al inicio' />
             </Link>
         </div>
