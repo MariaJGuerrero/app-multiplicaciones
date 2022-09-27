@@ -15,14 +15,12 @@ function getRandomIntInclusive(min, max) {
 const generarOperadores = () => [getRandomIntInclusive(1, 10), getRandomIntInclusive(1, 10)]
 
 const generarOpcionesResultados = (resultado) => {
-    
     const opcionesResultados = [
         resultado,
         getRandomIntInclusive(1, 100),
         getRandomIntInclusive(1, 100),
         getRandomIntInclusive(1, 100)
     ]
-
     shuffle(opcionesResultados)
 
     return opcionesResultados
@@ -33,15 +31,13 @@ const shuffle = (arr) => {
 
     for (let i = 0; i < length; i++) {
         const rand_index = Math.floor(Math.random() * length)
-
         const rand = arr[rand_index]
-
         arr[rand_index] = arr[i]
         arr[i] = rand
     }
 }
 
-function Verdadero() {
+const Verdadero = () => {
    const[bienHecho, setBienHecho] = useState();
    const[operadores, setOperadores] = useState(generarOperadores());
 
@@ -52,8 +48,7 @@ function Verdadero() {
         setOperadores(generarOperadores())
         setBienHecho(undefined)
     }
-
-
+    
     function clickHandler(opcion) {
         let opcionSeleccionado = opcion
         setBienHecho(opcionSeleccionado === resultado)

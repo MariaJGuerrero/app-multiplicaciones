@@ -1,20 +1,12 @@
-
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Boton from '../componentes/Boton'
 
 
+const Home = () => {
 
-
-function Home() {
-
-    //const [marcador, setMarcador] = useState(0);
        return (
         <div className="App">
             <h1 className='titulo'>TÍTULO</h1>
-           
-            
-           
                 <div className='contenedor-menu'>
                 <Link to="/repaso">
                     <Boton  

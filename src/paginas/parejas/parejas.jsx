@@ -6,9 +6,6 @@ import { useState, useContext } from 'react';
 import puntuacionGeneral from "../../componentes/utils/contexto-marcador";
 
 
-
-
-
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -22,33 +19,20 @@ const operadores = [
   { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
 ]
 
-
-
 const resultados = operadores.map((operador) => operador.a * operador.b)
-
 
 const shuffle = (arr) => {
   const length = arr.length
-
   for (let i = 0; i < length; i++) {
     const rand_index = Math.floor(Math.random() * length)
-
     const rand = arr[rand_index]
-
     arr[rand_index] = arr[i]
     arr[i] = rand
   }
 }
-
 shuffle(resultados);
 
-
-
-
-
-
-
-function Parejas() {
+const Parejas = () => {
 
   const [operadoresSeleccionados, setOperadoresSeleccionados] = useState();
   const [resultadoValido, setResultadoValido] = useState();
@@ -60,7 +44,6 @@ function Parejas() {
       <header>
         <h1 className="titulo">EMPAREJAMOS</h1>
       </header>
-
       <section className="contenedor-parejas">
         <div className="columna-parejas-operaciones">
           {operadores.map((operador, i) =>
@@ -105,7 +88,6 @@ function Parejas() {
             texto='Volver al inicio' />
         </Link>
       </footer>
-
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import {comprobarResultado} from './utils/comprobar-resultado'
 import {useState} from 'react';
 
-function TablaInput ({ numeroTabla, multiplicador }){
+const TablaInput = ({ numeroTabla, multiplicador }) => {
     let resultadoOperacion = numeroTabla * multiplicador;
     let resultadoDelUsuario ;
     const [esResultadoValido, setEsResultadoValido] = useState();
@@ -22,11 +22,7 @@ function TablaInput ({ numeroTabla, multiplicador }){
                     {esResultadoValido ? 'bien!' : undefined}      
                     {esResultadoValido === false  ? <span className='contenedor-evaluacion-mal'>mal!</span> : undefined}
                 </div>
-                    
-        
-        </div>
-            
-       
+        </div>   
     )  
 }
 

@@ -1,10 +1,6 @@
 import React from "react";
 
-
-
-
-
-function BienHecho ({ LimpiarEstado }){
+const BienHecho = ({ LimpiarEstado }) => {
     return(
         <div>
             <h1 className="titulo">Gran trabajo!</h1>

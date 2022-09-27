@@ -1,5 +1,5 @@
 
-function BotonInicio ({ texto }){
+const BotonInicio = ({ texto }) => {
     return(
         <button className="boton boton-inicio">
             {texto}
