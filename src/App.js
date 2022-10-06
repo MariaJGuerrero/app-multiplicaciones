@@ -10,7 +10,6 @@ import Repaso from './paginas/repaso/repaso';
 import Verdadero from './paginas/verdadero/verdadero';
 import Home from './paginas/home';
 import Parejas from './paginas/parejas/parejas';
-import Cuentoremas from './paginas/cuentoremas/cuentoremas';
 import puntuacionGeneral from './componentes/utils/contexto-marcador';
 
 
@@ -20,22 +19,32 @@ function App() {
  
   function sumarPuntos () {
     setMarcador(marcador+1)
-    console.log('En el sumarPuntos', marcador+1)
   }
 
   return (
     <>
       <Router>      
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/repaso" element={<Repaso />} />
-          <Route exact path="/verdadero" element={<Verdadero />} />
+          <Route exact path="/" element={
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
+              <Home />
+            </puntuacionGeneral.Provider>
+          } />
+          <Route exact path="/repaso" element={
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
+              <Repaso />
+            </puntuacionGeneral.Provider>
+          } />
+          <Route exact path="/verdadero" element={
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
+              <Verdadero />
+            </puntuacionGeneral.Provider>
+          } />
           <Route exact path="/parejas" element={ 
             <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
               <Parejas />
             </puntuacionGeneral.Provider>
          } />
-          <Route exact path="/cuentoremas" element={<Cuentoremas />} />
         </Routes>
       </Router>
     </>

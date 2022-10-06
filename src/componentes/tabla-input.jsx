@@ -1,10 +1,12 @@
 import {comprobarResultado} from './utils/comprobar-resultado'
-import {useState} from 'react';
+import { useState, useContext } from 'react';
+import puntuacionGeneral from '../componentes/utils/contexto-marcador';
 
 const TablaInput = ({ numeroTabla, multiplicador }) => {
     let resultadoOperacion = numeroTabla * multiplicador;
     let resultadoDelUsuario ;
     const [esResultadoValido, setEsResultadoValido] = useState();
+    const contadorPuntos = useContext(puntuacionGeneral);
 
 
     return(
@@ -15,6 +17,10 @@ const TablaInput = ({ numeroTabla, multiplicador }) => {
                     onChange={(evento) => { 
                         resultadoDelUsuario = parseInt(evento.target.value)
                         setEsResultadoValido(comprobarResultado(resultadoOperacion, resultadoDelUsuario))
+                        if(resultadoDelUsuario === resultadoOperacion){
+                            contadorPuntos.sumarPuntos()
+                            console.log(contadorPuntos.puntuacion)
+                        }
                     } } 
                     className='contenedor-resultado-input'
                 ></input> 

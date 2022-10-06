@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import BotonInicio from '../../componentes/boton-inicio';
 import BienHecho from '../../componentes/verdadero-bien-hecho';
 import './verdadero.css'
-import{useState} from 'react';
+import{ useState, useContext } from 'react';
+import puntuacionGeneral from '../../componentes/utils/contexto-marcador';
+import Marcador from '../../componentes/marcador/marcador';
 
 
 function getRandomIntInclusive(min, max) {
@@ -40,6 +42,7 @@ const shuffle = (arr) => {
 const Verdadero = () => {
    const[bienHecho, setBienHecho] = useState();
    const[operadores, setOperadores] = useState(generarOperadores());
+   const contadorPuntos = useContext(puntuacionGeneral);
 
    const resultado = operadores[0] * operadores[1]
    const opcionesResultados = generarOpcionesResultados(resultado)
@@ -50,13 +53,18 @@ const Verdadero = () => {
     }
     
     function clickHandler(opcion) {
-        let opcionSeleccionado = opcion
-        setBienHecho(opcionSeleccionado === resultado)
+        let esValido = opcion === resultado
+        setBienHecho(esValido )
+        if(esValido){
+            contadorPuntos.sumarPuntos()
+            console.log(contadorPuntos.puntuacion)
+        }
     }
 
 
     return (
         <div className='contenedor-principal-verdadero'>
+            <Marcador />
             <h1 className='titulo'> ¿CUÁL ES EL CORRECTO? </h1>
             <div className='contenedor-operacion'>
                 <p>{`${operadores[0]} * ${operadores[1]}`}</p>

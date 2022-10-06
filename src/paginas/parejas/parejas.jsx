@@ -4,6 +4,7 @@ import BotonInicio from '../../componentes/boton-inicio';
 import './parejas.css'
 import { useState, useContext } from 'react';
 import puntuacionGeneral from '../../componentes/utils/contexto-marcador';
+import Marcador from '../../componentes/marcador/marcador';
 
 
 function getRandomIntInclusive(min, max) {
@@ -42,6 +43,7 @@ const Parejas = () => {
   return (
     <div className='contenedor-principal-parejas'>
       <header>
+        <Marcador />
         <h1 className='titulo'>EMPAREJAMOS</h1>
       </header>
       <section className='contenedor-parejas'>
@@ -67,7 +69,6 @@ const Parejas = () => {
                 setResultadoValido(esValido);
                 if (esValido){
                   contadorPuntos.sumarPuntos()
-                  console.log('En el click', contadorPuntos.puntuacion)
                 }
               } }
               className='tarjeta resultado'

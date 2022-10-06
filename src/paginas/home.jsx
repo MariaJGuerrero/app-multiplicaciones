@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import Boton from '../componentes/Boton'
+import Marcador from '../componentes/marcador/marcador';
 
 
 const Home = () => {
 
        return (
         <div className="App">
+            <Marcador />
             <h1 className='titulo'>TÍTULO</h1>
                 <div className='contenedor-menu'>
                 <Link to="/repaso">
@@ -19,10 +21,6 @@ const Home = () => {
                 <Link to="/parejas">
                     <Boton 
                         texto='PAREJAS' />
-                </Link>
-                <Link to="/cuentoremas">
-                    <Boton 
-                        texto='CUENTOREMAS' />
                 </Link>
                 </div>
             

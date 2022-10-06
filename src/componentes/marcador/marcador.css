@@ -1,0 +1,20 @@
+.marcador-container{
+    display: flex;
+    min-height: 50px;
+    min-width: 300px;
+    border: 2px solid #AFB0B6;
+    background-color: #CAB8FF;
+    border-radius: 30px;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto{
+    color:blue;
+}
+
+.puntos{
+    color: red;
+    font-weight: bold;
+}
