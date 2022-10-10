@@ -64,33 +64,35 @@ const Verdadero = () => {
 
     return (
         <div className='contenedor-principal-verdadero'>
-            <Marcador />
-            <h1 className='titulo'> ¿CUÁL ES EL CORRECTO? </h1>
+            <header>
+                <Link to='/'>
+                    <BotonInicio texto='Volver al inicio' />
+                </Link>
+                <h1 className='titulo'> ¿CUÁL ES EL CORRECTO? </h1>
+                <Marcador />
+            </header>
+           <section className='contenedor-central'>
             <div className='contenedor-operacion'>
-                <p>{`${operadores[0]} * ${operadores[1]}`}</p>
-            </div>
-            
-            <div 
-                className='contenedor-opciones-resultado'
-            >
-                {opcionesResultados.map((opcion) => 
-                    <button
-                        onClick={() => clickHandler(opcion)} 
-                        className='boton'
-                        key= {opcion}
-                    >
-                        {opcion}
-                    </button>)
-                }
+                    <p>{`${operadores[0]} x ${operadores[1]}`}</p>
+                </div>
                 
-            </div>
-            {bienHecho ? <BienHecho LimpiarEstado={clearState} /> : ''}
-            {bienHecho === false ? <h1 className='titulo'>Sigue intentándolo!</h1> : ''}
+                <div className='contenedor-opciones-resultado'>
+                    {opcionesResultados.map((opcion) => 
+                        <button
+                            onClick={() => clickHandler(opcion)} 
+                            className='boton'
+                            key= {opcion}
+                        >
+                            {opcion}
+                        </button>)
+                    }    
+                </div>
+                {bienHecho ? <BienHecho LimpiarEstado={clearState} /> : ''}
+                {bienHecho === false ? <h1 className='titulo'>Sigue intentándolo!</h1> : ''}
+           </section>
             
             
-            <Link to='/'>
-                <BotonInicio texto='Volver al inicio' />
-            </Link>
+           
         </div>
             
     )

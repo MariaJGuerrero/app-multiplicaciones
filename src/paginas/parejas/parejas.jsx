@@ -43,8 +43,12 @@ const Parejas = () => {
   return (
     <div className='contenedor-principal-parejas'>
       <header>
-        <Marcador />
+        <Link to='/'>
+            <BotonInicio
+              texto='Volver al inicio' />
+        </Link>
         <h1 className='titulo'>EMPAREJAMOS</h1>
+        <Marcador />
       </header>
       <section className='contenedor-parejas'>
         <div className='columna-parejas-operaciones'>
@@ -57,7 +61,7 @@ const Parejas = () => {
               className='tarjeta operacion'
               key= {i}
             >
-              {`${operador.a} * ${operador.b}`}
+              {`${operador.a} x ${operador.b}`}
             </button>)
           }
         </div>
@@ -83,12 +87,6 @@ const Parejas = () => {
               {resultadoValido ? 'Bien hecho!' : undefined}
               {resultadoValido === false ? 'no, no, no, no, no' : undefined}
           </h3>
-      <footer>
-        <Link to='/'>
-          <BotonInicio
-            texto='Volver al inicio' />
-        </Link>
-      </footer>
     </div>
   )
 }

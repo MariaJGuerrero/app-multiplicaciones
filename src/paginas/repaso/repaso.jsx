@@ -16,20 +16,22 @@ const Repaso = () =>{
 
     return(
         <div className='contenedor-Repaso'>
-            <Marcador />
-            <h1 className='titulo'>REPASO</h1>
-            <div className='menu-botons'>
-                {tablas.map((numeroTabla) => <button className='tabla-boton' onClick={() => setNumeroTablaElegido(numeroTabla)} key= {numeroTabla}>Tabla {numeroTabla}</button>)}
-            </div>
-            <div className='contenedor-principal-tabla'>  
-                {multiplicadores.map((numero) =>  <TablaInput numeroTabla = {parseInt(numeroTablaElegido)} multiplicador = {parseInt(numero)} key={numero}/>)}
-            </div>
-
-        <Link to='/'>
-            <BotonInicio 
-                texto='Volver al inicio' />
-        </Link>
-            
+            <header>
+                <Link to='/'>
+                    <BotonInicio 
+                        texto='Volver al inicio' />
+                </Link>
+                <h1 className='titulo'>REPASO</h1>
+                <Marcador />   
+            </header>
+            <section>
+                <div className='menu-botons'>
+                    {tablas.map((numeroTabla) => <button className='tabla-boton' onClick={() => setNumeroTablaElegido(numeroTabla)} key= {numeroTabla}>Tabla {numeroTabla}</button>)}
+                </div>
+                <div className='contenedor-principal-tabla'>  
+                    {multiplicadores.map((numero) =>  <TablaInput numeroTabla = {parseInt(numeroTablaElegido)} multiplicador = {parseInt(numero)} key={numero}/>)}
+                </div>
+            </section>
         </div>
     )
 }

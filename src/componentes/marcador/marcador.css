@@ -5,13 +5,16 @@
     border: 2px solid #AFB0B6;
     background-color: #CAB8FF;
     border-radius: 30px;
-    justify-self: flex-end;
+    justify-self: flex-end ;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    margin-top: 30px;
 }
 
 .texto{
     color:blue;
+    font-size: 1.5em;
 }
 
 .puntos{

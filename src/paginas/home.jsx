@@ -8,7 +8,7 @@ const Home = () => {
        return (
         <div className="App">
             <Marcador />
-            <h1 className='titulo'>TÍTULO</h1>
+            <h1 className='titulo'>MULTIPLIGAMOS</h1>
                 <div className='contenedor-menu'>
                 <Link to="/repaso">
                     <Boton  

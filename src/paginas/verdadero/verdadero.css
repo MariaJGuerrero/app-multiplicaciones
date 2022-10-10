@@ -10,9 +10,17 @@
 
 }
 
+.contenedor-central{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 .contenedor-operacion{
-    margin-top: 20px;
+    margin-top: 50px;
     width: 200px;
     min-height: 100px;
     background-color: #CAB8FF;
@@ -26,12 +34,15 @@
 }
 
 .contenedor-opciones-resultado{
-    width: 80%;
+    min-width: 80%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 10px;
+    margin: 40px;
     justify-self: center;
     align-self: center;
     cursor: pointer;
+    
+}
+.contenedor-opciones-resultado .boton{
+    font-size: 1em;
 }
