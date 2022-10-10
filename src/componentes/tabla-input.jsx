@@ -19,7 +19,6 @@ const TablaInput = ({ numeroTabla, multiplicador }) => {
                         setEsResultadoValido(comprobarResultado(resultadoOperacion, resultadoDelUsuario))
                         if(resultadoDelUsuario === resultadoOperacion){
                             contadorPuntos.sumarPuntos()
-                            console.log(contadorPuntos.puntuacion)
                         }
                     } } 
                     className='contenedor-resultado-input'

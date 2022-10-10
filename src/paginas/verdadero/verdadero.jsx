@@ -57,7 +57,8 @@ const Verdadero = () => {
         setBienHecho(esValido )
         if(esValido){
             contadorPuntos.sumarPuntos()
-            console.log(contadorPuntos.puntuacion)
+        }else{
+            contadorPuntos.restarPuntos()
         }
     }
 

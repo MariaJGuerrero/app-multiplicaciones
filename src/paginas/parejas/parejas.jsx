@@ -73,6 +73,8 @@ const Parejas = () => {
                 setResultadoValido(esValido);
                 if (esValido){
                   contadorPuntos.sumarPuntos()
+                }else{
+                  contadorPuntos.restarPuntos()
                 }
               } }
               className='tarjeta resultado'

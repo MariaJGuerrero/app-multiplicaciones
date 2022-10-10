@@ -21,27 +21,31 @@ function App() {
     setMarcador(marcador+1)
   }
 
+  function restarPuntos () {
+    setMarcador(marcador-1)
+  }
+
   return (
     <>
       <Router>      
         <Routes>
           <Route exact path="/" element={
-            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos, restarPuntos: restarPuntos }}>
               <Home />
             </puntuacionGeneral.Provider>
           } />
           <Route exact path="/repaso" element={
-            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos, restarPuntos: restarPuntos }}>
               <Repaso />
             </puntuacionGeneral.Provider>
           } />
           <Route exact path="/verdadero" element={
-            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos, restarPuntos: restarPuntos }}>
               <Verdadero />
             </puntuacionGeneral.Provider>
           } />
           <Route exact path="/parejas" element={ 
-            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos }}>
+            <puntuacionGeneral.Provider value={{ puntuacion: marcador, sumarPuntos: sumarPuntos, restarPuntos: restarPuntos }}>
               <Parejas />
             </puntuacionGeneral.Provider>
          } />

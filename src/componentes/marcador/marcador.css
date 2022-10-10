@@ -2,8 +2,8 @@
     display: flex;
     min-height: 50px;
     min-width: 300px;
-    border: 2px solid #AFB0B6;
-    background-color: #CAB8FF;
+    border: 2px solid #f6f8ce;
+    background-color: #faf9fc;
     border-radius: 30px;
     justify-self: flex-end ;
     justify-content: center;
