@@ -1,6 +1,7 @@
 import {comprobarResultado} from './utils/comprobar-resultado'
 import { useState, useContext } from 'react';
 import puntuacionGeneral from '../componentes/utils/contexto-marcador';
+import { useEffect } from 'react';
 
 const TablaInput = ({ numeroTabla, multiplicador }) => {
     let resultadoOperacion = numeroTabla * multiplicador;
@@ -8,6 +9,19 @@ const TablaInput = ({ numeroTabla, multiplicador }) => {
     const [esResultadoValido, setEsResultadoValido] = useState();
     const contadorPuntos = useContext(puntuacionGeneral);
 
+    useEffect(() => {
+        setEsResultadoValido(undefined)
+    }, [numeroTabla])
+
+    const showMessage = () => {
+        if(esResultadoValido){
+            return '¡Bien!'
+        }
+
+        if(esResultadoValido === false){
+            return <span className='contenedor-evaluacion-mal'>¡Mal!</span>
+        }
+    }
 
     return(
         <div className='contenedor-fila-tabla'>
@@ -24,12 +38,12 @@ const TablaInput = ({ numeroTabla, multiplicador }) => {
                     className='contenedor-resultado-input'
                 ></input> 
                 <div className='contenedor-evaluacion'>
-                    {esResultadoValido ? 'bien!' : undefined}      
-                    {esResultadoValido === false  ? <span className='contenedor-evaluacion-mal'>mal!</span> : undefined}
+                    <p className='message'>{showMessage()}</p>
                 </div>
         </div>   
     )  
 }
+
 
 
 

@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import TablaInput from '../../componentes/tabla-input';
 import './repaso.css'
-import { useState, useContext } from 'react';
 import BotonInicio from '../../componentes/boton-inicio';
-import { Link } from 'react-router-dom';
 import Marcador from '../../componentes/marcador/marcador';
+import { useRef } from 'react';
 
 const tablas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const multiplicadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -12,10 +13,16 @@ const multiplicadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const Repaso = () =>{
 
     const [numeroTablaElegido, setNumeroTablaElegido] = useState(1);
+    const divRef = useRef();
     
+    const clearInputs = () => {
+        const inputs = divRef.current.querySelectorAll('input')
+        console.log([...inputs]);
+        [...inputs].map((input) => input.value = '');
+    }
 
     return(
-        <div className='contenedor-Repaso'>
+        <div ref={divRef} className='contenedor-Repaso'>
             <header>
                 <Link to='/'>
                     <BotonInicio 
@@ -26,10 +33,23 @@ const Repaso = () =>{
             </header>
             <section>
                 <div className='menu-botons'>
-                    {tablas.map((numeroTabla) => <button className='tabla-boton' onClick={() => setNumeroTablaElegido(numeroTabla)} key= {numeroTabla}>Tabla {numeroTabla}</button>)}
+                    {tablas.map((numeroTabla) => 
+                        <button 
+                            className='tabla-boton'
+                            onClick={() => {
+                                setNumeroTablaElegido(numeroTabla)
+                                clearInputs()
+                            }}
+                            key= {numeroTabla}
+                        >
+                            Tabla {numeroTabla}
+                        </button>)}
                 </div>
                 <div className='contenedor-principal-tabla'>  
-                    {multiplicadores.map((numero) =>  <TablaInput numeroTabla = {parseInt(numeroTablaElegido)} multiplicador = {parseInt(numero)} key={numero}/>)}
+                  
+                    {multiplicadores.map((numero) =>  
+                        <TablaInput numeroTabla = {parseInt(numeroTablaElegido)} multiplicador = {parseInt(numero)} key={numero}/>
+                    )}
                 </div>
             </section>
         </div>
