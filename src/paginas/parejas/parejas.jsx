@@ -5,6 +5,7 @@ import './parejas.css'
 import { useState, useContext } from 'react';
 import puntuacionGeneral from '../../componentes/utils/contexto-marcador';
 import Marcador from '../../componentes/marcador/marcador';
+import { useEffect } from 'react';
 
 
 function getRandomIntInclusive(min, max) {
@@ -13,14 +14,17 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const operadores = [
-  { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
-  { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
-  { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
-  { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
-]
 
-const resultados = operadores.map((operador) => operador.a * operador.b)
+
+const generarOperadores = () => [
+      { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
+      { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
+      { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
+      { a: getRandomIntInclusive(1, 10), b: getRandomIntInclusive(1, 10) },
+  ]
+
+  
+const generarResultados = (operadores) => operadores.map((operador) => operador.a * operador.b);
 
 const shuffle = (arr) => {
   const length = arr.length
@@ -31,15 +35,50 @@ const shuffle = (arr) => {
     arr[i] = rand
   }
 }
-shuffle(resultados);
+
+const restart = (setOperaciones, setResultados) => {
+  const operadores = generarOperadores()
+  setOperaciones(operadores) 
+
+  const resultado = generarResultados(operadores)
+  console.log('restart', {operadores, resultado})
+  shuffle(resultado);  
+  setResultados(resultado) 
+}
+
+let operacionSeleccionada = undefined;
+const mostrarOperaciones = (operaciones) => {
+  console.log(operaciones)
+  return operaciones.map((operador,i) =>
+   <button
+     onClick={() => {
+        operacionSeleccionada = operador.a * operador.b
+       
+     }}
+     className='tarjeta operacion'
+     key= {i}
+   >
+     {`${operador.a} x ${operador.b}`}
+   </button>)
+}
+
+
+
+
 
 const Parejas = () => {
 
-  const [operadoresSeleccionados, setOperadoresSeleccionados] = useState();
+  //const [operadoresSeleccionados, setOperadoresSeleccionados] = useState();
   const [resultadoValido, setResultadoValido] = useState();
+  const [operaciones, setOperaciones] = useState([]);
+  const [resultados, setResultados] = useState([]);
+
 
   const contadorPuntos = useContext(puntuacionGeneral);
-
+  useEffect(()=> {
+    restart(setOperaciones, setResultados)
+  }, [])
+ 
   return (
     <div className='contenedor-principal-parejas'>
       <header>
@@ -52,24 +91,15 @@ const Parejas = () => {
       </header>
       <section className='contenedor-parejas'>
         <div className='columna-parejas-operaciones'>
-          {operadores.map((operador, i) =>
-            <button
-              onClick={() => {
-                setOperadoresSeleccionados(operador.a * operador.b) 
-                setResultadoValido(undefined)
-              }}
-              className='tarjeta operacion'
-              key= {i}
-            >
-              {`${operador.a} x ${operador.b}`}
-            </button>)
-          }
+            {mostrarOperaciones(operaciones)}
+            
+            
         </div>
         <div className='columna-parejas-resultados'>
-          {resultados.map((resultado) =>
+          {resultados.map((resultado, i) =>
             <button 
               onClick={() => {
-                const esValido = operadoresSeleccionados === resultado
+                const esValido = operacionSeleccionada === resultado
                 setResultadoValido(esValido);
                 if (esValido){
                   contadorPuntos.sumarPuntos()
@@ -78,7 +108,7 @@ const Parejas = () => {
                 }
               } }
               className='tarjeta resultado'
-              key= {resultado}
+              key= {i}
             >
               {resultado}
             </button>)
@@ -89,9 +119,12 @@ const Parejas = () => {
               {resultadoValido ? 'Bien hecho!' : undefined}
               {resultadoValido === false ? 'no, no, no, no, no' : undefined}
           </h3>
+          <button onClick={() => restart(setOperaciones, setResultados)}>Volver a jugar</button>
     </div>
   )
 }
+
+
 
 export default Parejas;
 
