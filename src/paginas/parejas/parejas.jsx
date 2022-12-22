@@ -47,7 +47,7 @@ const restart = (setOperaciones, setResultados) => {
 }
 
 let operacionSeleccionada = undefined;
-const mostrarOperaciones = (operaciones) => {
+const mostrarOperaciones = (operaciones, resultadoValido) => {
   console.log(operaciones)
   return operaciones.map((operador,i) =>
    <button
@@ -55,7 +55,7 @@ const mostrarOperaciones = (operaciones) => {
         operacionSeleccionada = operador.a * operador.b
        
      }}
-     className='tarjeta operacion'
+     className= {resultadoValido ? 'tarjeta hecho' : 'tarjeta operacion'}
      key= {i}
    >
      {`${operador.a} x ${operador.b}`}
@@ -91,9 +91,7 @@ const Parejas = () => {
       </header>
       <section className='contenedor-parejas'>
         <div className='columna-parejas-operaciones'>
-            {mostrarOperaciones(operaciones)}
-            
-            
+            {mostrarOperaciones(operaciones, resultadoValido)}  
         </div>
         <div className='columna-parejas-resultados'>
           {resultados.map((resultado, i) =>
@@ -103,11 +101,12 @@ const Parejas = () => {
                 setResultadoValido(esValido);
                 if (esValido){
                   contadorPuntos.sumarPuntos()
+                  
                 }else{
                   contadorPuntos.restarPuntos()
                 }
               } }
-              className='tarjeta resultado'
+              className= {resultadoValido ? 'tarjeta hecho' : 'tarjeta resultado'}
               key= {i}
             >
               {resultado}
@@ -119,7 +118,7 @@ const Parejas = () => {
               {resultadoValido ? 'Bien hecho!' : undefined}
               {resultadoValido === false ? 'no, no, no, no, no' : undefined}
           </h3>
-          <button onClick={() => restart(setOperaciones, setResultados)}>Volver a jugar</button>
+          <button className='boton' onClick={() => restart(setOperaciones, setResultados)}>Volver a jugar</button>
     </div>
   )
 }

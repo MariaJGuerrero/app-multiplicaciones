@@ -44,6 +44,9 @@
     font-size: 1em;
     font-weight: bold;
 }
+.hecho{
+    background-color: greenyellow;
+}
 
 .tarjeta:hover{
     background-color: white;
