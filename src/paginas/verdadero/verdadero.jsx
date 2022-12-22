@@ -78,11 +78,11 @@ const Verdadero = () => {
                 </div>
                 
                 <div className='contenedor-opciones-resultado'>
-                    {opcionesResultados.map((opcion) => 
+                    {opcionesResultados.map((opcion, i) => 
                         <button
                             onClick={() => clickHandler(opcion)} 
                             className='boton'
-                            key= {opcion}
+                            key= {i}
                         >
                             {opcion}
                         </button>)

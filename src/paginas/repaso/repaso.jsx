@@ -31,7 +31,7 @@ const Repaso = () =>{
                 <h1 className='titulo'>REPASO</h1>
                 <Marcador />   
             </header>
-            <section>
+            <section className='section'>
                 <div className='menu-botons'>
                     {tablas.map((numeroTabla) => 
                         <button 

@@ -8,6 +8,11 @@ header{
     justify-content: space-around;
 }
 
+.section{
+    display: flex;
+    flex-direction: column;
+}
+
 .contenedor-Repaso{
     display: flex;
     flex-wrap: wrap;
