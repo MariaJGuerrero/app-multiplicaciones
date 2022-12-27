@@ -44,6 +44,11 @@
     font-size: 1em;
     font-weight: bold;
 }
+
+.tarjeta.operacion:focus{
+    background-color: red;
+}
+
 .hecho{
     background-color: greenyellow;
 }

@@ -47,31 +47,61 @@ const restart = (setOperaciones, setResultados) => {
 }
 
 let operacionSeleccionada = undefined;
-const mostrarOperaciones = (operaciones, resultadoValido) => {
-  console.log(operaciones)
-  return operaciones.map((operador,i) =>
-   <button
+let operacionAcertada = undefined;
+
+const mostrarOperaciones = (operaciones, operacionesAcertadas) => {
+  
+  return operaciones.map((operador,i) =>{
+  const clase = `tarjeta operacion${operacionesAcertadas.includes(i) ? ' hecho' : ''}`
+  return (<button
      onClick={() => {
         operacionSeleccionada = operador.a * operador.b
-       
+        operacionAcertada = i
+        console.log('operacion acertada', operacionAcertada)
      }}
-     className= {resultadoValido ? 'tarjeta hecho' : 'tarjeta operacion'}
+     className= {clase}
      key= {i}
    >
      {`${operador.a} x ${operador.b}`}
    </button>)
-}
+   
+})}
 
+let resultadoAcertado = undefined;
+const mostrarResultados = (resultados, setResultadoValido, contadorPuntos, setOperacionesAcertadas, operacionesAcertadas) => {
+  console.log('RESULTADOS', resultados)
+   return resultados.map((resultado, i) =>
+    <button 
+      onClick={() => {
+        const esValido = operacionSeleccionada === resultado
+        resultadoAcertado = i;
+        setResultadoValido(esValido);
+        if (esValido){
+          contadorPuntos.sumarPuntos()
+          operacionesAcertadas = [...operacionesAcertadas, operacionAcertada]
+          setOperacionesAcertadas(operacionesAcertadas)
+          console.log('OPERACIONES ACERTADAS', operacionesAcertadas)
 
+        }else{
+          contadorPuntos.restarPuntos()
+        }
+      } }
+      className='tarjeta resultado'
+      key= {i}
+    >
+      {resultado}
+    </button>)
+  }
 
 
 
 const Parejas = () => {
 
-  //const [operadoresSeleccionados, setOperadoresSeleccionados] = useState();
   const [resultadoValido, setResultadoValido] = useState();
   const [operaciones, setOperaciones] = useState([]);
+  const [operacionesAcertadas, setOperacionesAcertadas] = useState([]);
   const [resultados, setResultados] = useState([]);
+  
 
 
   const contadorPuntos = useContext(puntuacionGeneral);
@@ -91,27 +121,10 @@ const Parejas = () => {
       </header>
       <section className='contenedor-parejas'>
         <div className='columna-parejas-operaciones'>
-            {mostrarOperaciones(operaciones, resultadoValido)}  
+            {mostrarOperaciones(operaciones, operacionesAcertadas )}  
         </div>
         <div className='columna-parejas-resultados'>
-          {resultados.map((resultado, i) =>
-            <button 
-              onClick={() => {
-                const esValido = operacionSeleccionada === resultado
-                setResultadoValido(esValido);
-                if (esValido){
-                  contadorPuntos.sumarPuntos()
-                  
-                }else{
-                  contadorPuntos.restarPuntos()
-                }
-              } }
-              className= {resultadoValido ? 'tarjeta hecho' : 'tarjeta resultado'}
-              key= {i}
-            >
-              {resultado}
-            </button>)
-          }
+          {mostrarResultados(resultados, setResultadoValido, contadorPuntos, setOperacionesAcertadas, operacionesAcertadas)}
         </div>
       </section>
           <h3>
