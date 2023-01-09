@@ -57,7 +57,6 @@ const mostrarOperaciones = (operaciones, operacionesAcertadas) => {
      onClick={() => {
         operacionSeleccionada = operador.a * operador.b
         operacionAcertada = i
-        console.log('operacion acertada', operacionAcertada)
      }}
      className= {clase}
      key= {i}
@@ -80,8 +79,6 @@ const mostrarResultados = (resultados, setResultadoValido, contadorPuntos, setOp
           contadorPuntos.sumarPuntos()
           operacionesAcertadas = [...operacionesAcertadas, operacionAcertada]
           setOperacionesAcertadas(operacionesAcertadas)
-          console.log('OPERACIONES ACERTADAS', operacionesAcertadas)
-
         }else{
           contadorPuntos.restarPuntos()
         }
@@ -102,9 +99,8 @@ const Parejas = () => {
   const [operacionesAcertadas, setOperacionesAcertadas] = useState([]);
   const [resultados, setResultados] = useState([]);
   
-
-
   const contadorPuntos = useContext(puntuacionGeneral);
+
   useEffect(()=> {
     restart(setOperaciones, setResultados)
   }, [])
