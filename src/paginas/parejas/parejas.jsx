@@ -66,7 +66,6 @@ const mostrarOperaciones = (operaciones, operacionesAcertadas) => {
    
 })}
 
-let resultadoAcertado = undefined;
 const mostrarResultados = (resultados, setResultadoValido, contadorPuntos, setOperacionesAcertadas, operacionesAcertadas) => {
   console.log('RESULTADOS', resultados)
    return resultados.map((resultado, i) =>
