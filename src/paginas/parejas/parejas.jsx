@@ -72,7 +72,6 @@ const mostrarResultados = (resultados, setResultadoValido, contadorPuntos, setOp
     <button 
       onClick={() => {
         const esValido = operacionSeleccionada === resultado
-        resultadoAcertado = i;
         setResultadoValido(esValido);
         if (esValido){
           contadorPuntos.sumarPuntos()
