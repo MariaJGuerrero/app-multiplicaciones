@@ -2,13 +2,13 @@
 
 ### Tecnologies:
 
-- html
+- React
 - css
-- react
+- Javascript
 
 ### Improvements:
 - [x] improve readme.
-- [ ] Arrow functions.
+- [x] Arrow functions.
 - [x] Key maps.
  
 
